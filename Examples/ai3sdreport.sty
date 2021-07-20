@@ -1,0 +1,62 @@
+\ProvidesPackage{ai3sdreport}
+
+%PREAMBLE PAGES defined here
+%%%%title page
+\newcommand{\AISDTitlePage}{\thispagestyle{empty}
+\begin{minipage}{0.29\textwidth}
+	\centering
+	\includegraphics[width=1.25in, height=1.28in]{images/AI3SD.png}
+\end{minipage}
+\begin{minipage}{0.7\textwidth}
+	\centering
+	\vskip 9pt
+	{\Large\textbf{Artificial Intelligence and Augmented Intelligence for Automated Investigations for Scientific Discovery}}
+\end{minipage}
+
+\begin{minipage}{0.29\textwidth}
+	\centering
+	\includegraphics[width=2in]{images/PSDS.png}
+\end{minipage}
+\begin{minipage}{0.7\textwidth}
+	\centering
+	\vskip -5pt
+	{\Large\textbf{The Physical Sciences Data-Science\newline Service (PSDS)}}
+\end{minipage}
+
+
+\begin{center}
+\vspace{8\baselineskip}
+{\large Skills4Scientists: LaTeX Resources}\\
+{\large Dr Samantha Kanza}
+\vspace{6\baselineskip}
+\end{center}
+\newpage}
+
+%%%%%%%%%%%%
+%Packages below this line
+%%%%%%%%%%%%
+\usepackage[left=20mm, right=20mm, top=20mm, bottom=20mm]{geometry}
+
+\usepackage[usenames]{color} % color package
+\usepackage{listings} %This package is in here to enable the code formatting
+\lstset{basicstyle=\scriptsize}
+\usepackage{graphicx} %graphics package
+\usepackage{url} %This package is to enable using urls
+\usepackage[colorlinks, pdfborder={0 0 0}, urlcolor=blue, linkcolor=blue, citecolor=blue]{hyperref} %This package sets the colours of the URLs
+\usepackage{multirow} %for merging cells across rows
+\usepackage{mathtools} %maths package
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{parskip} % http://www.tex.ac.uk/cgi-bin/texfaq2html?label=parskip
+\setlength{\parindent}{0cm}%This stops the paragraphs in each section indenting
+\setlength{\parskip}{0.4cm}
+
+% Heading style
+% http://www.terminally-incoherent.com/blog/2007/09/19/latex-squeezing-the-vertical-white-space/
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+

@@ -1,0 +1,21 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{multirow} %allows cell merging across rows
+
+\begin{document}
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{ p{90pt} | p{90pt} | p{90pt} | p{90pt}} 
+Disney Film 				& Cat Name 	& Fur Colour 		& Favourite Food	\\ \hline
+Cinderella 				& Lucifer 		& Black 			& Mice 			\\ \hline
+\multirow{2}{*}{Aristocats} 	& Marie 		& White 			& Milk			\\\cline{2-4}
+						& Toulouse 	& Orange 			& Milk			\\ \hline
+Pinnochio 					& Figaro	 	& Black and White 	& Fish 			\\ \hline
+\end{tabular}
+\caption{Disney Cats}
+\end{center}
+\end{table}
+
+\end{document}
+

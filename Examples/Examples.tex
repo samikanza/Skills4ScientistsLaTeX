@@ -1,0 +1,351 @@
+\documentclass[10pt, titlepage]{article}
+\usepackage{ai3sdreport}
+
+\begin{document}
+%%%%%%TITLE PAGE%%%%%%
+\AISDTitlePage{}
+
+\thispagestyle{empty}
+\pagenumbering{arabic}
+\tableofcontents
+\newpage
+
+\section{Sections}
+In order to make sections you can use the \textbf{\textbackslash section} command. Typically you can go down by three sublevels although there are packages that allow you to go further. 
+
+\begin{itemize}
+	\item{\textbf{\textbackslash section\{Heading\}} will make a top level heading}
+	\item{\textbf{\textbackslash subsection\{Heading\}} will make a second level heading}
+	\item{\textbf{\textbackslash subsubsection\{Heading\}} will make a third level heading}
+\end{itemize}
+
+Examples of these commands can be found in \textbf{Sections.tex}, and you can see examples of sections and subsections within this document. Full documentation and further examples can be found here: \url{https://en.wikibooks.org/wiki/LaTeX/Document_Structure#Sectioning_commands}.
+
+\section{Table of Contents}
+The command to make a table of contents is very simple. \textbf{\textbackslash tableofcontents} will build you a table of contents. Sometimes you will need to compile your LaTeX more than once for it to register the table of contents fully. 
+
+Examples of these commands can be found in \textbf{TableOfContents.tex}, and you can see an example of a table of contents at the beginning of this document. Full documentation and further examples can be found here: \url{https://en.wikibooks.org/wiki/LaTeX/Tables_of_Contents_and_Lists_of_Figures}.
+
+\section{Paragraphs \& Line Endings}
+There are several ways you can start new paragraphs. You can use \textbf{\textbackslash par} or just leave a blank line between paragraphs. This will create a new paragraph that by default indents. You can also use the \textbf{\textbackslash \textbackslash} command at the end of the paragraph to start a new line which will then force a new paragraph. 
+
+The key thing to remembere here is, paragraphs starting after a \textbf{\textbackslash \textbackslash} will not indent, and paragraphs starting after the \textbf{\textbackslash par} or a blank line will. 
+
+\begin{itemize}
+	\item{\textbf{\textbackslash par} will start a new indented paragraph on the next line}
+	\item{\textbf{leaving a blank line} will start a new indented paragraph on the next line}
+	\item{\textbf{\textbackslash \textbackslash} followed by a blank line will start a new indented paragraph on a new line with a line gap}
+	\item{\textbf{\textbackslash \textbackslash} will start a new not indented paragraph on the next line}
+	\item{\textbf{\textbackslash \textbackslash\textbackslash \textbackslash} will start a new not indented paragraph on a new line with a line gap}
+
+\end{itemize}
+
+As shown in the preamble of this document, you can also set a command to stop the default indenting by using the command \textbf{\textbackslash setlength \textbackslash parindent\{0pt\}}. 
+
+Examples of these commands can be found in \textbf{Paragraphs.tex}. Full documentation and further examples can be found here: \url{https://en.wikibooks.org/wiki/LaTeX/Paragraph_Formatting}.
+
+\section{Text Formatting}
+The following commands will format your text in different ways:
+
+\begin{itemize}
+	\item{\textbf{\textbackslash textbf\{text\} will make your text bold}}
+	\item{\textbf{\textbackslash textit\{text\}} \textit{will make your text italic}}
+	\item{\textbf{\textbackslash underline\{text\}} \underline{will make your text underlined}}
+\end{itemize}
+
+You can use these together to apply multiple types of formatting \textbf{\textbackslash textbf \textbackslash textit \textbackslash underline\{\{\{text\}\}\}} will apply all three formats to your text. These can be used in any order and combination. All three used together will look like this \textbf{\underline{\textit{Test text that is bold underlined and italic}}}.
+
+Examples of these commands can be found in \textbf{TextFormatting.tex}. Full documentation and further examples can be found here: \url{https://en.wikibooks.org/wiki/LaTeX/Text_Formatting}.
+
+\section{Lists}
+You can make two different types of lists in LaTeX, numbered lists and bullet pointed lists. The formatting for both is similar, and you can create nested lists of either type.
+
+Bullet pointed list example:\\
+\begin{tabular}{|p{240pt}|p{240pt}|}\hline
+\textbf{Code}\newline
+\begin{lstlisting}
+\begin{itemize}
+	\item{Bullet Point 1}
+	\item{Bullet Point 2}
+\end{itemize}
+\end{lstlisting} &
+\textbf{Output}\newline
+\begin{itemize}
+	\item{Bullet Point}
+\end{itemize} \\\hline
+\end{tabular}
+
+Numbered list example:\\
+\begin{tabular}{|p{240pt}|p{240pt}|}\hline
+\textbf{Code}\newline
+\begin{lstlisting}
+\begin{enumerate}
+	\item{Numbered Point 1}
+	\item{Numbered Point 2}
+\end{enumerate}
+\end{lstlisting} &
+\textbf{Output}\newline
+\begin{enumerate}
+	\item{Numbered Point 1}
+	\item{Numbered Point 2}
+\end{enumerate} \\\hline
+\end{tabular}
+
+Nested combined list example:\\
+\begin{tabular}{|p{240pt}|p{240pt}|}\hline
+\textbf{Code}\newline
+\begin{lstlisting}
+\begin{enumerate}
+	\item{Numbered Point}
+	\begin{itemize}
+		\item{Bullet Point}
+	\end{itemize}
+\end{enumerate}
+\end{lstlisting} &
+\textbf{Output}\newline
+\begin{enumerate}
+	\item{Numbered Point}
+	\begin{itemize}
+		\item{Bullet Point}
+	\end{itemize}
+\end{enumerate} \\\hline
+\end{tabular}
+
+Examples of these commands can be found in \textbf{Lists.tex}. Full documentation and further examples can be found here: \url{https://en.wikibooks.org/wiki/LaTeX/List_Structures}.
+
+\section{Figures \& Captions}
+Adding figures and captions in is a bit more complex. First and foremost you need to use the following package to display images: \textbf{\textbackslash usepackage{graphicx} }.
+
+The basic code structure for adding an image is shown below. The options for the graphics package are the size/scale of the image, and then the image path. 
+
+\begin{lstlisting}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[<size/scale>]{<image path>}
+	\caption{caption}
+\end{figure}
+\end{lstlisting}
+
+An example of this with specified options is shown below. This specifies the float as [ht], makes the width 95\% of the line width and sets the image path to be a folder called images at the same level as this .tex file, with an image called Salem.JPG. It sets the caption to be Salem the Cat. 
+\begin{lstlisting}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width = .5\linewidth]{images/Salem.JPG}
+	\caption{Salem the Cat}
+\end{figure}
+\end{lstlisting}
+
+This will produce a figure that looks like this:
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width = .5\linewidth]{images/Salem.JPG}
+	\caption{Salem the Cat}
+	\label{fig:figure1}
+\end{figure}
+
+Examples of these comamnds can be found in \textbf{Figures.tex}. Full documentation and further examples can be found here: \url{https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions}. 
+
+\newpage
+\section{Tables}
+Basic tables use the \textbf{\textbackslash begin\{tabular\}} command. 
+
+The basic code structure for adding a table is shown below. It starts with the tabular command, and then uses | to denote if there should be column lines or not, and \textbf{l} (left align), \textbf{r} (right align), \textbf{c} (centre align), \textbf{p\{XXpt\}} (defined size).\textbf{\textbackslash \textbackslash} denotes the end of a row and \textbf{\textbackslash \textbackslash hline} to signal drawing a grid line for the next row. The cells are divided by the \textbf{\&} sign and each row is ended with a \textbf{\textbackslash \textbackslash}.
+
+\begin{lstlisting}
+\begin{tabular}{| <alignment> | <alignment> | }	\hline
+Heading 1 	& Heading 2	& Heading 3	\\ \hline
+Content 1 	& Content 2 	& Content 3 	\\ \hline
+\end{tabular}
+\end{lstlisting}
+
+An example of this with test data is shown below. This denotes a 4x4 table, with full borders, aligned to the left. 
+\begin{lstlisting}
+\begin{tabular}{| l | l | l |}\hline
+Cat Name 	& Fur Colour 	& Favourite Food\\ \hline
+Lucifer 	& Black 	& Mice 		\\ \hline
+Toulouse 	& Orange 	& Milk 		\\ \hline
+Figaro 	& Black and White 	& Fish 		\\ \hline
+\end{tabular}
+\end{lstlisting}
+
+This will produce a table that looks like this: \\
+\begin{tabular}{| l | l | l |}\hline
+Cat Name 	& Fur Colour 	& Favourite Food\\ \hline
+Lucifer 	& Black 	& Mice 		\\ \hline
+Toulouse 	& Orange 	& Milk 		\\ \hline
+Figaro 	& Black and White 	& Fish 		\\ \hline
+\end{tabular}\\
+
+You can also add captions to tables, and format them in a variety of ways including merging cells and rows. An example of a more advanced table that uses captions and merged cells is shown below. This requires importing the multirow package using this command: \textbf{\textbackslash usepackage\{multirow\}}. This table doesn't have | at either end of the options after the tabular command, denoting that it doesnt have column borders at the left and right. 
+\begin{lstlisting}
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{ p{90pt} | p{90pt} | p{90pt} | p{90pt}} 
+Disney Film 			& Cat Name 	& Fur Colour 		& Favourite Food	\\ \hline
+Cinderella 			& Lucifer 	& Black 		& Mice 			\\ \hline
+\multirow{2}{*}{Aristocats} 	& Marie 	& White 		& Milk			\\\cline{2-4}
+				& Toulouse 	& Orange 		& Milk			\\ \hline
+Pinnochio 			& Figaro	& Black and White 	& Fish 			\\ \hline
+\end{tabular}
+\caption{Disney Cats}
+\end{center}
+\end{table}
+\end{lstlisting}
+
+\newpage
+This will produce a table that looks like this:\\
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{ p{90pt} | p{90pt} | p{90pt} | p{90pt}} 
+Disney Film 			& Cat Name 	& Fur Colour 		& Favourite Food	\\ \hline
+Cinderella 			& Lucifer 	& Black 		& Mice 			\\ \hline
+\multirow{2}{*}{Aristocats} 	& Marie 	& White 		& Milk			\\\cline{2-4}
+				& Toulouse 	& Orange 		& Milk			\\ \hline
+Pinnochio 			& Figaro	& Black and White 	& Fish 			\\ \hline
+\end{tabular}
+\caption{Disney Cats}
+\label{tab:table1}
+\end{center}
+\end{table}
+
+Examples of these commands can be found in \textbf{BasicTables.tex} and \textbf{AdvancedTables.tex}. Full documentation and further examples can be found here: \url{https://en.wikibooks.org/wiki/LaTeX/Tables}. 
+
+\section{Special Characters \& Quotes}
+There are several special characters in LaTeX, the most common of which are:  \textbf{\& \% \{ \}  \$ \# \textbackslash}. 
+
+Most of these can be escaped using the \textbf{\textbackslash }command except for the \textbf{\textbackslash} itself which requires using the code \textbf{\textbackslash textbackslash}. 
+
+So the code for writing these characters is: 
+\begin{lstlisting}
+\& \% \{ \}  \$ \# \textbackslash 
+\end{lstlisting}
+
+Often LaTeX doesn't recognise the double quote marks successfully and it can end up looking like this: "hello". In order to get the left quotes to behave succesfully you need to use ` ` rather than ".
+
+Examples:\\
+\begin{tabular}{|p{240pt}|p{240pt}|}\hline
+\textbf{Code}  & \textbf{Output} \\\hline
+\begin{lstlisting}
+"Double Quotes that don't work"
+\end{lstlisting} & \vspace{8pt}"Double Quotes that don't work" \\ \hline
+\begin{lstlisting}
+``Double Quotes that work"
+\end{lstlisting} & \vspace{8pt} ``Double Quotes that work" \\ \hline
+\begin{lstlisting}
+'Single Quotes that don't work'
+\end{lstlisting} & \vspace{8pt} 'Single Quotes that don't work' \\ \hline
+\begin{lstlisting}
+`Single Quotes that work'
+\end{lstlisting} & \vspace{8pt} `Single Quotes that work' \\ \hline
+\end{tabular}
+
+Examples of these commands can be found in \textbf{QuotesCharacters.tex}. Full documentation and further examples can be found here: \url{https://en.wikibooks.org/wiki/LaTeX/Special_Characters}, and a comprehensive list of symbols can be found here: \url{http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf}.
+
+\newpage
+\section{Mathematical Symbols}
+LaTeX has a lot of capabilities for displaying mathematical operators and equations. 
+
+The common maths symbols can be accessed using the keyboard including:  \textbf{+ - = ! / ( ) [ ] < > | ' : *}
+
+For anything else you can put your document into math mode, using any of the commands shown below. They all work just the same, it is just preference.
+\begin{lstlisting}
+\( \), $ $ or \begin{math} \end{math}.
+\end{lstlisting}
+
+Once you put your document into math mode you can write out all numbers of mathematical expressions and equations. There are certain symbols that are used to display different operators and there are ways to use superscript using the \^ operator in math mode and subscript using the \_ operator in math mode where necessary. 
+
+Here are some examples of how to write different mathematical expressions:
+
+Sets \& Relations\\
+\begin{tabular}{|p{240pt}|p{240pt}|}\hline
+\textbf{Code}  & \textbf{Output} \\\hline
+\begin{lstlisting}
+\begin{math}
+\forall x \in X, \quad \exists y \leq \epsilon
+\end{math}
+\end{lstlisting} &
+ \vspace{8pt}
+\begin{math}
+\forall x \in X, \quad \exists y \leq \epsilon
+\end{math} \\ \hline
+\end{tabular}
+
+Operators\\
+\begin{tabular}{|p{240pt}|p{240pt}|}\hline
+\textbf{Code}  & \textbf{Output} \\\hline
+\begin{lstlisting}
+\begin{math}
+\cos (2\theta) = \cos^2 \theta - \sin^2 \theta
+\end{math}
+\end{lstlisting} &
+ \vspace{8pt}
+\begin{math}
+\cos (2\theta) = \cos^2 \theta - \sin^2 \theta
+\end{math}\\\hline
+\end{tabular}
+
+Powers and indices\\
+\begin{tabular}{|p{240pt}|p{240pt}|}\hline
+\textbf{Code}  & \textbf{Output} \\\hline
+\begin{lstlisting}
+\begin{math}
+k_{n+1} = n^2 + k_n^2 - k_{n-1}
+\end{math}
+\end{lstlisting} &
+ \vspace{8pt}
+\begin{math}
+k_{n+1} = n^2 + k_n^2 - k_{n-1}
+\end{math}\\\hline
+\end{tabular}
+
+Examples of these commands can be found in \textbf{Maths.tex}. Full documentation and further examples can be found here: \url{https://en.wikibooks.org/wiki/LaTeX/Mathematics}. 
+
+\newpage
+\section{Labels \& References}
+\label{sec:labels}
+Labelling and referencing is very useful in LaTeX. You can label sections, tables and figures and then seamlessly refer to them in your document, and if their numbers change they will be updated automatically because you will be calling their reference rather than just referring to their number.
+
+To label and reference you use the \textbf{\textbackslash label\{text\}} and \textbf{\textbackslash ref\{text\}} commands. 
+
+There is a label for this section which has been placed right under the section heading in the LaTeX. This uses the code \textbf{\textbackslash label\{sec:labels\}}. If I refer to it using the code \textbf{\textbackslash ref\{sec:labels\}} it will automatically pull the number for this section, like this: I am referencing Section \ref{sec:labels}. 
+
+You can also label figures and tables. 
+
+The code for labelling a figure looks like this:
+\begin{lstlisting}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width = .95\linewidth]{images/Salem.JPG}
+	\caption{Salem the Cat}	
+	\label{fig:figure1}
+\end{figure}
+\end{lstlisting}
+
+The code for labelling a table looks like this:
+\begin{lstlisting}
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{ p{90pt} | p{90pt} | p{90pt} | p{90pt}} 
+Disney Film 	& Cat Name 	& Fur Colour 	& Favourite Food	\\ \hline
+Cinderella 	& Lucifer 	& Black 	& Mice 			\\ \hline
+\end{tabular}
+\caption{Disney Cats}
+\label{tab:table1}
+\end{center}
+\end{table}
+\end{lstlisting}
+
+I have given these labels above to Figure 1 and Table 1. Using the following code will call these:\\
+\begin{tabular}{|p{240pt}|p{240pt}|}\hline
+\textbf{Code}  & \textbf{Output} \\\hline
+\begin{lstlisting}
+Here I refer to Figure \ref{fig:figure1} and 
+Table \ref{tab:table1}.
+\end{lstlisting} &
+ \vspace{8pt}
+Here I refer to Figure \ref{fig:figure1} and Table \ref{tab:table1}.\\\hline
+\end{tabular}
+
+Examples of these commands can be found in \textbf{Labels.tex} and \textbf{FigureTableLabels.tex}. Full documentation and further examples can be found here: \url{https://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing}. 
+
+\end{document}
